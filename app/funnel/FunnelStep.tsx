@@ -9,13 +9,16 @@ interface FunnelStepProps {
 }
 
 export function FunnelStep({ children }: FunnelStepProps) {
-  const { progressStep, totalSteps } = useFunnel();
+  const { currentStep, progressStep, totalSteps } = useFunnel();
+  const showProgress = currentStep !== 'hook';
 
   return (
-    <div className="flex min-h-dvh w-full justify-center bg-gray-50 px-4 py-8">
+    <div className="flex min-h-dvh w-full justify-center bg-cream-100 px-4 py-8">
       <div className="w-full max-w-[420px]">
-        <ProgressBar step={progressStep} total={totalSteps} />
-        <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-100">
+        {showProgress && (
+          <ProgressBar step={progressStep} total={totalSteps} />
+        )}
+        <div className="rounded-2xl bg-cream-50 p-6 shadow-sm ring-1 ring-cream-200">
           {children}
         </div>
       </div>

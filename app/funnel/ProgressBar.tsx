@@ -8,12 +8,12 @@ export function ProgressBar({ step, total }: ProgressBarProps) {
 
   return (
     <div className="mb-6">
-      <p className="mb-2 text-xs font-medium uppercase tracking-wide text-gray-500">
+      <p className="mb-2 text-xs font-medium uppercase tracking-wide text-ink-500">
         Step {step} of {total}
       </p>
-      <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200">
+      <div className="h-2 w-full overflow-hidden rounded-full bg-cream-200">
         <div
-          className="h-full rounded-full bg-emerald-500 transition-all duration-300"
+          className="h-full rounded-full bg-terracotta-500 transition-all duration-300"
           style={{ width: `${percent}%` }}
         />
       </div>

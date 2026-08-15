@@ -19,13 +19,16 @@ function formatTelegramMessage(
   answers: Record<string, string>,
   email: string,
 ): string {
-  const questionLines = QUESTIONS.map((questionText, index) => {
-    const answer = answers[`q${index + 1}`]?.trim() || '(no answer)';
-    return `${index + 1}. ${questionText} — ${answer}`;
+  const questionLines = QUESTIONS.map((question) => {
+    const answer = answers[`q${question.id}`]?.trim() || '(no answer)';
+    return `${question.id}. ${question.text} — ${answer}`;
   });
 
   return [
-    'New household coach quiz submission',
+    'New Nook quiz submission',
+    `Name — ${answers.name?.trim() || '(no answer)'}`,
+    `Gender — ${answers.gender?.trim() || '(no answer)'}`,
+    `Age — ${answers.age?.trim() || '(no answer)'}`,
     ...questionLines,
     `Email — ${email}`,
   ].join('\n');
