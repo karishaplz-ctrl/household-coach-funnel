@@ -49,21 +49,23 @@ export function SuccessStep() {
   const selectedPlan = PLANS.find((plan) => plan.id === selected) ?? PLANS[0];
 
   return (
-    <div className="flex flex-col items-center gap-4 py-6 text-center">
-      <SuccessIllustration />
+    <div className="flex flex-col items-center gap-3 py-4 text-center">
+      <div className="w-28 sm:w-36 lg:w-44">
+        <SuccessIllustration />
+      </div>
 
       <div>
-        <h2 className="font-serif text-xl font-bold text-ink-900">
+        <h2 className="font-serif text-lg font-bold text-ink-900 lg:text-xl">
           {name ? `Welcome to Nook, ${name}` : 'Welcome to Nook'}
         </h2>
-        <p className="mt-1 text-sm font-medium text-ink-700">
+        <p className="mt-0.5 text-sm font-medium text-ink-700">
           Here&apos;s your first step:
         </p>
       </div>
 
       <p className="text-sm text-ink-500">{tip}</p>
 
-      <div className="mt-2 flex w-full flex-col gap-3 text-left">
+      <div className="mt-1 flex w-full flex-col gap-2 text-left">
         {PLANS.map((plan) => {
           const isRecommended = plan.id === recommended;
           const isSelected = plan.id === selected;
@@ -75,7 +77,7 @@ export function SuccessStep() {
                 setSelected(plan.id);
                 setConfirmed(false);
               }}
-              className={`relative rounded-2xl border p-4 text-left transition-colors ${
+              className={`relative rounded-2xl border p-3 text-left transition-colors ${
                 isSelected
                   ? 'border-terracotta-500 bg-terracotta-50'
                   : 'border-cream-200 bg-cream-50 hover:bg-cream-100'
@@ -102,14 +104,16 @@ export function SuccessStep() {
                   {plan.name}
                 </p>
               </div>
-              <p className="mt-1 text-sm text-ink-500">{plan.description}</p>
+              <p className="mt-0.5 text-xs text-ink-500">
+                {plan.description}
+              </p>
             </button>
           );
         })}
       </div>
 
       {confirmed ? (
-        <p className="mt-2 text-sm font-medium text-sage-600">
+        <p className="mt-1 text-sm font-medium text-sage-600">
           You&apos;re all set with the {selectedPlan.name} — check your inbox
           for next steps.
         </p>
@@ -117,7 +121,7 @@ export function SuccessStep() {
         <button
           type="button"
           onClick={() => setConfirmed(true)}
-          className="mt-2 w-full rounded-full bg-terracotta-500 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-terracotta-600"
+          className="mt-1 w-full rounded-full bg-terracotta-500 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-terracotta-600"
         >
           Continue with this plan
         </button>

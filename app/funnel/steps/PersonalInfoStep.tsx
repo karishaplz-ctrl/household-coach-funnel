@@ -10,7 +10,7 @@ export function PersonalInfoStep() {
   const canContinue = !!answers.gender && !!answers.age;
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-5">
       <WelcomeIllustration />
 
       <div>
@@ -40,7 +40,7 @@ export function PersonalInfoStep() {
         <label className="text-sm font-medium text-ink-700">
           How do you identify?
         </label>
-        <div className="flex flex-col gap-2">
+        <div className="grid grid-cols-2 gap-2">
           {GENDER_OPTIONS.map((option) => {
             const isSelected = answers.gender === option;
             return (
@@ -48,7 +48,7 @@ export function PersonalInfoStep() {
                 key={option}
                 type="button"
                 onClick={() => setAnswer('gender', option)}
-                className={`rounded-lg border px-4 py-3 text-left text-sm font-medium transition-colors ${
+                className={`rounded-lg border px-3 py-2.5 text-center text-sm font-medium transition-colors ${
                   isSelected
                     ? 'border-terracotta-500 bg-terracotta-50 text-terracotta-700'
                     : 'border-cream-300 text-ink-700 hover:bg-cream-50'
@@ -65,7 +65,7 @@ export function PersonalInfoStep() {
         <label className="text-sm font-medium text-ink-700">
           What&apos;s your age range?
         </label>
-        <div className="flex flex-col gap-2">
+        <div className="grid grid-cols-3 gap-2">
           {AGE_OPTIONS.map((option) => {
             const isSelected = answers.age === option;
             return (
@@ -73,7 +73,7 @@ export function PersonalInfoStep() {
                 key={option}
                 type="button"
                 onClick={() => setAnswer('age', option)}
-                className={`rounded-lg border px-4 py-3 text-left text-sm font-medium transition-colors ${
+                className={`rounded-lg border px-3 py-2.5 text-center text-sm font-medium transition-colors ${
                   isSelected
                     ? 'border-terracotta-500 bg-terracotta-50 text-terracotta-700'
                     : 'border-cream-300 text-ink-700 hover:bg-cream-50'

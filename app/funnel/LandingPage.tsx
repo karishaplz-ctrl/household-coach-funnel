@@ -54,10 +54,10 @@ export function LandingPage({ onStart }: LandingPageProps) {
             at a time.
           </p>
         </div>
-        <div className="mt-8 h-[220px] w-full overflow-hidden sm:h-[300px] lg:h-[380px] xl:h-[440px]">
+        <div className="mt-8 aspect-[700/300] w-full overflow-hidden sm:max-h-[300px] lg:max-h-[380px] xl:max-h-[440px]">
           <HeroIllustration />
         </div>
-        <div className="mx-auto w-full max-w-2xl px-4 pb-16 text-center sm:pb-20 lg:pb-24">
+        <div className="mx-auto w-full max-w-2xl px-4 py-16 text-center sm:py-20 lg:py-24">
           <button
             type="button"
             onClick={onStart}

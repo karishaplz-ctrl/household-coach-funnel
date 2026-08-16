@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { useFunnel } from '../FunnelContext';
+import { GreetingIllustration } from '../illustrations/GreetingIllustration';
 
 export function GreetingStep() {
   const { answers, goNext } = useFunnel();
@@ -14,11 +15,10 @@ export function GreetingStep() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center gap-3 py-10 text-center">
+    <div className="flex flex-col items-center gap-3 py-6 text-center">
+      <GreetingIllustration />
       <h2 className="font-serif text-xl font-bold text-ink-900">
-        {name
-          ? `Nice to meet you, ${name}!`
-          : 'Nice start!'}
+        {name ? `Nice to meet you, ${name}!` : 'Nice start!'}
       </h2>
       <p className="text-sm text-ink-500">
         That&apos;s your first step to success.

@@ -91,7 +91,7 @@ export function ProgressBar({ step, total }: ProgressBarProps) {
       <p className="mb-2 text-xs font-medium uppercase tracking-wide text-ink-500">
         Step {step} of {total}
       </p>
-      <div className="relative h-2 w-full">
+      <div className="relative mx-2.5 h-2">
         <div className="h-2 w-full overflow-hidden rounded-full bg-cream-200">
           <div
             className="h-full rounded-full bg-terracotta-500 transition-all duration-300"
@@ -124,9 +124,9 @@ export function ProgressBar({ step, total }: ProgressBarProps) {
                 )}
                 {reached && milestone.celebrate && (
                   <>
-                    <Sparkle top={-9} left={-9} delay="80ms" />
-                    <Sparkle top={-10} right={-9} delay="160ms" />
-                    <Sparkle bottom={-9} left={3} delay="220ms" />
+                    <Sparkle top={-8} left={-10} delay="80ms" />
+                    <Sparkle top={-9} left={5} delay="160ms" />
+                    <Sparkle bottom={-7} left={-2} delay="220ms" />
                   </>
                 )}
               </div>

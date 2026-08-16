@@ -13,7 +13,7 @@ export function FunnelStep({ children }: FunnelStepProps) {
   const showProgress = currentStep !== 'hook';
 
   return (
-    <div className="flex min-h-dvh w-full items-center justify-center bg-cream-100 px-4 py-8">
+    <div className="flex min-h-dvh w-full items-center justify-center overflow-x-hidden bg-cream-100 px-4 py-8">
       <div className="w-full max-w-[420px] lg:max-w-[480px]">
         {showProgress && (
           <ProgressBar step={progressStep} total={totalSteps} />
