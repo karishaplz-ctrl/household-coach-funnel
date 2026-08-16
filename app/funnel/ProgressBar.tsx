@@ -91,48 +91,50 @@ export function ProgressBar({ step, total }: ProgressBarProps) {
       <p className="mb-2 text-xs font-medium uppercase tracking-wide text-ink-500">
         Step {step} of {total}
       </p>
-      <div className="relative mx-2.5 h-2">
-        <div className="h-2 w-full overflow-hidden rounded-full bg-cream-200">
-          <div
-            className="h-full rounded-full bg-terracotta-500 transition-all duration-300"
-            style={{ width: `${percent}%` }}
-          />
-        </div>
-
-        {MILESTONES.map((milestone) => {
-          const reached = percent >= milestone.threshold;
-          return (
+      <div className="-mx-3 -my-3 overflow-hidden px-3 py-3">
+        <div className="relative h-2">
+          <div className="h-2 w-full overflow-hidden rounded-full bg-cream-200">
             <div
-              key={milestone.threshold}
-              className="absolute top-1/2"
-              style={{
-                left: `${milestone.threshold}%`,
-                transform: 'translate(-50%, -50%)',
-              }}
-            >
+              className="h-full rounded-full bg-terracotta-500 transition-all duration-300"
+              style={{ width: `${percent}%` }}
+            />
+          </div>
+
+          {MILESTONES.map((milestone) => {
+            const reached = percent >= milestone.threshold;
+            return (
               <div
-                className={`relative flex h-4 w-4 items-center justify-center rounded-full border transition-colors duration-300 ${
-                  reached
-                    ? 'border-terracotta-500 bg-terracotta-500'
-                    : 'border-cream-300 bg-cream-50'
-                }`}
+                key={milestone.threshold}
+                className="absolute top-1/2"
+                style={{
+                  left: `${milestone.threshold}%`,
+                  transform: 'translate(-50%, -50%)',
+                }}
               >
-                {reached && (
-                  <span className="animate-[pop-in_350ms_ease-out]">
-                    <MilestoneIcon icon={milestone.icon} />
-                  </span>
-                )}
-                {reached && milestone.celebrate && (
-                  <>
-                    <Sparkle top={-8} left={-10} delay="80ms" />
-                    <Sparkle top={-9} left={5} delay="160ms" />
-                    <Sparkle bottom={-7} left={-2} delay="220ms" />
-                  </>
-                )}
+                <div
+                  className={`relative flex h-4 w-4 items-center justify-center rounded-full border transition-colors duration-300 ${
+                    reached
+                      ? 'border-terracotta-500 bg-terracotta-500'
+                      : 'border-cream-300 bg-cream-50'
+                  }`}
+                >
+                  {reached && (
+                    <span className="animate-[pop-in_350ms_ease-out]">
+                      <MilestoneIcon icon={milestone.icon} />
+                    </span>
+                  )}
+                  {reached && milestone.celebrate && (
+                    <>
+                      <Sparkle top={-8} left={-10} delay="80ms" />
+                      <Sparkle top={-9} left={5} delay="160ms" />
+                      <Sparkle bottom={-7} left={-2} delay="220ms" />
+                    </>
+                  )}
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );

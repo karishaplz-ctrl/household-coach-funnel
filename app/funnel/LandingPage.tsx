@@ -57,11 +57,11 @@ export function LandingPage({ onStart }: LandingPageProps) {
         <div className="mt-8 aspect-[700/300] w-full overflow-hidden sm:max-h-[300px] lg:max-h-[380px] xl:max-h-[440px]">
           <HeroIllustration />
         </div>
-        <div className="mx-auto w-full max-w-2xl px-4 py-16 text-center sm:py-20 lg:py-24">
+        <div className="mx-auto w-full max-w-2xl px-4 py-8 text-center sm:py-10 lg:py-12">
           <button
             type="button"
             onClick={onStart}
-            className="rounded-full bg-terracotta-500 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-terracotta-600"
+            className="rounded-full bg-terracotta-500 px-10 py-4 text-base font-semibold text-white transition-colors hover:bg-terracotta-600"
           >
             Find my plan
           </button>
@@ -150,7 +150,7 @@ export function LandingPage({ onStart }: LandingPageProps) {
         </div>
       </section>
 
-      <section className="w-full bg-terracotta-500 px-4 py-16">
+      <section className="w-full bg-terracotta-500 px-4 py-12">
         <div className="mx-auto w-full max-w-2xl text-center">
           <p className="font-serif text-lg font-bold text-white lg:text-xl">
             Ready to see your plan? Takes 2 minutes.
@@ -158,7 +158,7 @@ export function LandingPage({ onStart }: LandingPageProps) {
           <button
             type="button"
             onClick={onStart}
-            className="mt-4 rounded-full bg-white px-8 py-3 text-sm font-medium text-terracotta-600 transition-colors hover:bg-cream-50"
+            className="mt-4 rounded-full bg-white px-10 py-4 text-base font-semibold text-terracotta-600 transition-colors hover:bg-cream-50"
           >
             Find my plan
           </button>
