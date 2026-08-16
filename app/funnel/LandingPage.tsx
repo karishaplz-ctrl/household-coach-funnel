@@ -44,8 +44,8 @@ function Star() {
 export function LandingPage({ onStart }: LandingPageProps) {
   return (
     <div className="flex min-h-dvh w-full flex-col items-center">
-      <section className="w-full bg-cream-100 px-4 py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-2xl text-center">
+      <section className="w-full bg-cream-100 pt-16 sm:pt-20 lg:pt-24">
+        <div className="mx-auto w-full max-w-2xl px-4 text-center">
           <h1 className="font-serif text-3xl font-bold text-ink-900 sm:text-4xl lg:text-5xl">
             Your Home Doesn&apos;t Need a Weekend. It Needs 15 Minutes.
           </h1>
@@ -53,13 +53,15 @@ export function LandingPage({ onStart }: LandingPageProps) {
             Meet Nook — the no-shame way to reset your space, one small step
             at a time.
           </p>
-          <div className="mt-8 flex justify-center">
-            <HeroIllustration />
-          </div>
+        </div>
+        <div className="mt-8 h-[220px] w-full overflow-hidden sm:h-[300px] lg:h-[380px] xl:h-[440px]">
+          <HeroIllustration />
+        </div>
+        <div className="mx-auto w-full max-w-2xl px-4 pb-16 text-center sm:pb-20 lg:pb-24">
           <button
             type="button"
             onClick={onStart}
-            className="mt-8 rounded-full bg-terracotta-500 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-terracotta-600"
+            className="rounded-full bg-terracotta-500 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-terracotta-600"
           >
             Find my plan
           </button>

@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useFunnel } from '../FunnelContext';
 import { SuccessIllustration } from '../illustrations/SuccessIllustration';
 
@@ -30,15 +31,22 @@ const PLANS = [
   },
 ] as const;
 
+type PlanId = (typeof PLANS)[number]['id'];
+
 export function SuccessStep() {
   const { answers } = useFunnel();
   const tip = FIRST_STEP_TIPS[answers.q5] ?? DEFAULT_TIP;
   const name = answers.name.trim();
 
-  const recommended =
+  const recommended: PlanId =
     answers.q3.length === 1 && answers.q3[0] === 'Just me'
       ? 'personal'
       : 'family';
+
+  const [selected, setSelected] = useState<PlanId>(recommended);
+  const [confirmed, setConfirmed] = useState(false);
+
+  const selectedPlan = PLANS.find((plan) => plan.id === selected) ?? PLANS[0];
 
   return (
     <div className="flex flex-col items-center gap-4 py-6 text-center">
@@ -58,13 +66,19 @@ export function SuccessStep() {
       <div className="mt-2 flex w-full flex-col gap-3 text-left">
         {PLANS.map((plan) => {
           const isRecommended = plan.id === recommended;
+          const isSelected = plan.id === selected;
           return (
-            <div
+            <button
               key={plan.id}
-              className={`relative rounded-2xl border p-4 ${
-                isRecommended
+              type="button"
+              onClick={() => {
+                setSelected(plan.id);
+                setConfirmed(false);
+              }}
+              className={`relative rounded-2xl border p-4 text-left transition-colors ${
+                isSelected
                   ? 'border-terracotta-500 bg-terracotta-50'
-                  : 'border-cream-200 bg-cream-50'
+                  : 'border-cream-200 bg-cream-50 hover:bg-cream-100'
               }`}
             >
               {isRecommended && (
@@ -72,14 +86,42 @@ export function SuccessStep() {
                   Recommended
                 </span>
               )}
-              <p className="text-sm font-semibold text-ink-900">
-                {plan.name}
-              </p>
+              <div className="flex items-center gap-2">
+                <span
+                  className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full border ${
+                    isSelected
+                      ? 'border-terracotta-500 bg-terracotta-500'
+                      : 'border-cream-300 bg-cream-50'
+                  }`}
+                >
+                  {isSelected && (
+                    <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                  )}
+                </span>
+                <p className="text-sm font-semibold text-ink-900">
+                  {plan.name}
+                </p>
+              </div>
               <p className="mt-1 text-sm text-ink-500">{plan.description}</p>
-            </div>
+            </button>
           );
         })}
       </div>
+
+      {confirmed ? (
+        <p className="mt-2 text-sm font-medium text-sage-600">
+          You&apos;re all set with the {selectedPlan.name} — check your inbox
+          for next steps.
+        </p>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setConfirmed(true)}
+          className="mt-2 w-full rounded-full bg-terracotta-500 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-terracotta-600"
+        >
+          Continue with this plan
+        </button>
+      )}
     </div>
   );
 }

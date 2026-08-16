@@ -6,7 +6,7 @@ export function OverwhelmedIllustration() {
   return (
     <svg
       viewBox="0 0 320 250"
-      className="w-full max-w-[300px]"
+      className="w-full max-w-[300px] lg:max-w-[340px]"
       aria-hidden="true"
     >
       <defs>

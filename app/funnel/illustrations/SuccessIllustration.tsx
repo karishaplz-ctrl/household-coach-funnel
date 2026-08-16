@@ -5,7 +5,7 @@ export function SuccessIllustration() {
   return (
     <svg
       viewBox="0 0 220 190"
-      className="w-full max-w-[210px]"
+      className="w-full max-w-[210px] lg:max-w-[250px]"
       aria-hidden="true"
     >
       <SkyBackdrop

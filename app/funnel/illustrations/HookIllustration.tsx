@@ -5,7 +5,7 @@ export function HookIllustration() {
   return (
     <svg
       viewBox="0 0 260 220"
-      className="w-full max-w-[240px]"
+      className="w-full max-w-[240px] lg:max-w-[280px]"
       aria-hidden="true"
     >
       <SkyBackdrop

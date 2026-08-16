@@ -11,8 +11,8 @@ const LINES = [
 ];
 
 const STAGGER_MS = 700;
-const COUNT_DURATION_MS = 600;
-const AUTO_ADVANCE_MS = 2300;
+const COUNT_DURATION_MS = 1500;
+const AUTO_ADVANCE_MS = 2 * STAGGER_MS + COUNT_DURATION_MS + 300;
 
 function CountingLine({ text, delay }: { text: string; delay: number }) {
   const [visible, setVisible] = useState(false);
