@@ -54,7 +54,7 @@ export function LandingPage({ onStart }: LandingPageProps) {
             at a time.
           </p>
         </div>
-        <div className="mx-auto w-full max-w-2xl px-4 py-6 text-center sm:py-8 lg:py-3">
+        <div className="mx-auto w-full max-w-2xl px-4 pt-6 pb-2 text-center sm:pt-8 lg:pt-3">
           <button
             type="button"
             onClick={onStart}
@@ -64,7 +64,7 @@ export function LandingPage({ onStart }: LandingPageProps) {
           </button>
         </div>
         <div className="mx-auto w-[clamp(300px,72vw,1100px)]">
-          <div className="aspect-[900/500] w-full">
+          <div className="aspect-[900/340] w-full">
             <HeroIllustration />
           </div>
         </div>

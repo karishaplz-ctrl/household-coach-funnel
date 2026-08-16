@@ -3,7 +3,7 @@ import { Plant } from './Plant';
 export function HeroIllustration() {
   return (
     <svg
-      viewBox="0 0 900 500"
+      viewBox="0 160 900 340"
       className="block h-full w-full"
       preserveAspectRatio="xMidYMid meet"
       aria-hidden="true"
@@ -15,9 +15,9 @@ export function HeroIllustration() {
         </linearGradient>
       </defs>
 
-      {/* organic backdrop shape, no rectangular edges */}
+      {/* organic backdrop shape, rounded on every side, no straight/sharp edges */}
       <path
-        d="M0,260 C80,200 160,232 240,206 C340,176 420,222 520,196 C620,170 700,214 800,190 C860,176 900,196 900,196 L900,500 L0,500 Z"
+        d="M0,330 C0,280 25,245 70,240 C130,232 190,248 250,222 C330,190 410,228 490,202 C570,178 650,212 730,192 C795,178 855,188 885,212 C900,225 900,242 900,260 L900,440 C900,472 875,500 843,500 L57,500 C25,500 0,472 0,440 C-8,400 -5,365 0,330 Z"
         fill="#F6E1D3"
       />
 
