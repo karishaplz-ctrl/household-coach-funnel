@@ -54,7 +54,7 @@ export function LandingPage({ onStart }: LandingPageProps) {
             at a time.
           </p>
         </div>
-        <div className="mt-8 aspect-[700/300] w-full overflow-hidden sm:max-h-[280px] lg:mt-6 lg:max-h-[220px] xl:max-h-[280px]">
+        <div className="mt-8 aspect-[700/330] w-full overflow-hidden sm:max-h-[300px] lg:mt-6 lg:max-h-[280px] xl:max-h-[340px]">
           <HeroIllustration />
         </div>
         <div className="mx-auto w-full max-w-2xl px-4 py-6 text-center sm:py-8 lg:py-6">

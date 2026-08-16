@@ -50,7 +50,7 @@ export function SuccessStep() {
 
   return (
     <div className="flex flex-col items-center gap-3 py-4 text-center">
-      <div className="w-28 sm:w-36 lg:w-44">
+      <div className="w-full overflow-hidden rounded-xl">
         <SuccessIllustration />
       </div>
 

@@ -1,48 +1,60 @@
 import { Plant } from './Plant';
-import { SkyBackdrop, GroundBand } from './Backdrop';
+import { GroundBand } from './Backdrop';
 
 export function SuccessIllustration() {
   return (
-    <svg
-      viewBox="0 0 220 190"
-      className="w-full max-w-[210px] lg:max-w-[250px]"
-      aria-hidden="true"
-    >
-      <SkyBackdrop
-        id="succ-sky"
-        width={220}
-        height={190}
-        top="#FEFCFA"
-        bottom="#F1F4EC"
-      />
+    <svg viewBox="0 0 400 170" className="block w-full" aria-hidden="true">
+      <defs>
+        <radialGradient id="succ-glow" cx="50%" cy="40%" r="75%">
+          <stop offset="0%" stopColor="#FEFCFA" />
+          <stop offset="50%" stopColor="#F1F4EC" />
+          <stop offset="100%" stopColor="#FEFCFA" />
+        </radialGradient>
+        <linearGradient id="succ-fade-top" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#FEFCFA" />
+          <stop offset="100%" stopColor="#FEFCFA" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+
+      <rect x="0" y="0" width="400" height="170" fill="url(#succ-glow)" />
 
       <GroundBand
-        width={220}
-        y={158}
+        width={400}
+        y={130}
         height={32}
         farColor="#DFE7D3"
         nearColor="#E4D3BE"
       />
 
-      <ellipse cx="110" cy="170" rx="60" ry="7" fill="#2C2620" opacity="0.08" />
-
-      <Plant x={110} y={148} scale={1.5} full />
+      <ellipse cx="170" cy="146" rx="55" ry="6" fill="#2C2620" opacity="0.08" />
+      <Plant x={170} y={130} scale={1.3} full />
 
       {/* sparkles */}
-      <path d="M44,54 L47,61 L54,64 L47,67 L44,74 L41,67 L34,64 L41,61 Z" fill="#D98A5E" />
-      <path d="M176,50 L178,54 L182,56 L178,58 L176,62 L174,58 L170,56 L174,54 Z" fill="#7C8F63" />
-      <path d="M170,100 L172,104 L176,106 L172,108 L170,112 L168,108 L164,106 L168,104 Z" fill="#C1663B" />
+      <path
+        d="M84,42 L87,49 L94,52 L87,55 L84,62 L81,55 L74,52 L81,49 Z"
+        fill="#D98A5E"
+      />
+      <path
+        d="M320,36 L322,40 L326,42 L322,44 L320,48 L318,44 L314,42 L318,40 Z"
+        fill="#7C8F63"
+      />
+      <path
+        d="M300,84 L302,88 L306,90 L302,92 L300,96 L298,92 L294,90 L298,88 Z"
+        fill="#C1663B"
+      />
 
       {/* checkmark badge */}
-      <circle cx="150" cy="130" r="20" fill="#DFE7D3" />
+      <circle cx="272" cy="88" r="22" fill="#DFE7D3" />
       <path
-        d="M142,130 L148,136 L160,122"
+        d="M263,88 L269,94 L282,79"
         fill="none"
         stroke="#64744E"
         strokeWidth="3.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+
+      <rect x="0" y="0" width="400" height="48" fill="url(#succ-fade-top)" />
     </svg>
   );
 }
