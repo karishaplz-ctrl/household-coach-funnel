@@ -20,37 +20,17 @@ export function HeroIllustration() {
           <rect x="230" y="168" width="34" height="100" rx="16" />
         </clipPath>
 
-        <filter
-          id="hero-blur"
-          x="-60%"
-          y="-60%"
-          width="220%"
-          height="220%"
-        >
-          <feGaussianBlur stdDeviation="36" />
-        </filter>
+        <radialGradient id="hero-warmth" cx="50%" cy="48%" r="62%">
+          <stop offset="0%" stopColor="#FBEEE7" stopOpacity="0.4" />
+          <stop offset="55%" stopColor="#FBEEE7" stopOpacity="0.15" />
+          <stop offset="100%" stopColor="#FBEEE7" stopOpacity="0" />
+        </radialGradient>
       </defs>
 
-      {/* soft blurred halo — no hard edge, floats like an island */}
-      <ellipse
-        cx="320"
-        cy="230"
-        rx="280"
-        ry="165"
-        fill="#FBEEE7"
-        filter="url(#hero-blur)"
-      />
-      <ellipse
-        cx="320"
-        cy="230"
-        rx="170"
-        ry="100"
-        fill="#FEFCFA"
-        opacity="0.8"
-        filter="url(#hero-blur)"
-      />
+      {/* whisper of warmth, fading fully to transparent — no boxed edge */}
+      <ellipse cx="320" cy="210" rx="320" ry="210" fill="url(#hero-warmth)" />
 
-      <g transform="translate(0,96) scale(0.605)">
+      <g transform="translate(-32,85) scale(0.66)">
         {/* sparkles */}
         <path
           d="M920,74 L923,81 L930,84 L923,87 L920,94 L917,87 L910,84 L917,81 Z"
