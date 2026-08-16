@@ -65,7 +65,7 @@ export function SuccessStep() {
 
       <p className="text-sm text-ink-500">{tip}</p>
 
-      <div className="mt-1 flex w-full flex-col gap-2 text-left">
+      <div className="mt-1 flex w-full flex-col gap-5 text-left">
         {PLANS.map((plan) => {
           const isRecommended = plan.id === recommended;
           const isSelected = plan.id === selected;

@@ -44,7 +44,7 @@ function Star() {
 export function LandingPage({ onStart }: LandingPageProps) {
   return (
     <div className="flex min-h-dvh w-full flex-col items-center">
-      <section className="w-full bg-cream-100 pt-16 sm:pt-20 lg:pt-24">
+      <section className="w-full bg-cream-100 pt-16 sm:pt-20 lg:pt-10">
         <div className="mx-auto w-full max-w-2xl px-4 text-center">
           <h1 className="font-serif text-3xl font-bold text-ink-900 sm:text-4xl lg:text-5xl">
             Your Home Doesn&apos;t Need a Weekend. It Needs 15 Minutes.
@@ -54,10 +54,10 @@ export function LandingPage({ onStart }: LandingPageProps) {
             at a time.
           </p>
         </div>
-        <div className="mt-8 aspect-[700/300] w-full overflow-hidden sm:max-h-[300px] lg:max-h-[380px] xl:max-h-[440px]">
+        <div className="mt-8 aspect-[700/300] w-full overflow-hidden sm:max-h-[280px] lg:mt-6 lg:max-h-[220px] xl:max-h-[280px]">
           <HeroIllustration />
         </div>
-        <div className="mx-auto w-full max-w-2xl px-4 py-8 text-center sm:py-10 lg:py-12">
+        <div className="mx-auto w-full max-w-2xl px-4 py-6 text-center sm:py-8 lg:py-6">
           <button
             type="button"
             onClick={onStart}
