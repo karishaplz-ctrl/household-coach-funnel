@@ -32,7 +32,7 @@ export function PersonalInfoStep() {
           value={answers.name}
           onChange={(e) => setAnswer('name', e.target.value)}
           placeholder="First name"
-          className="w-full rounded-lg border border-cream-300 px-4 py-3 text-sm focus:border-terracotta-500 focus:outline-none focus:ring-1 focus:ring-terracotta-500"
+          className="w-full rounded-lg border border-cream-300 px-4 py-3 text-base focus:border-terracotta-500 focus:outline-none focus:ring-1 focus:ring-terracotta-500"
         />
       </div>
 

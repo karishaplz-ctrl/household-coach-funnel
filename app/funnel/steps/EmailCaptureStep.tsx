@@ -53,7 +53,7 @@ export function EmailCaptureStep() {
         onChange={(e) => setAnswer('email', e.target.value)}
         placeholder="you@example.com"
         disabled={isSubmitting}
-        className="w-full rounded-lg border border-cream-300 px-4 py-3 text-sm focus:border-terracotta-500 focus:outline-none focus:ring-1 focus:ring-terracotta-500 disabled:opacity-60"
+        className="w-full rounded-lg border border-cream-300 px-4 py-3 text-base focus:border-terracotta-500 focus:outline-none focus:ring-1 focus:ring-terracotta-500 disabled:opacity-60"
       />
 
       {error && <p className="text-sm text-red-600">{error}</p>}

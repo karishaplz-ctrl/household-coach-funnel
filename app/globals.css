@@ -48,6 +48,15 @@ body {
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* iOS Safari auto-zooms on focus when an input's font-size is under 16px.
+   Since this is a single-page app, that zoom persists across steps after
+   the input blurs, which looked like layout/overflow bugs elsewhere. */
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
 @keyframes pop-in {
   0% {
     transform: scale(0.4);
