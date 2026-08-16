@@ -1,11 +1,12 @@
 import { Plant } from './Plant';
 import { Note } from './Note';
+import { SkyBackdrop } from './Backdrop';
 
 export function OverwhelmedIllustration() {
   return (
     <svg
       viewBox="0 0 320 250"
-      className="w-full max-w-[280px]"
+      className="w-full max-w-[300px]"
       aria-hidden="true"
     >
       <defs>
@@ -17,7 +18,13 @@ export function OverwhelmedIllustration() {
         </clipPath>
       </defs>
 
-      <rect x="0" y="0" width="320" height="250" rx="24" fill="#FBF5EC" />
+      <SkyBackdrop
+        id="ov-sky"
+        width={320}
+        height={250}
+        top="#FEFCFA"
+        bottom="#FBEEE7"
+      />
 
       <Plant x={30} y={214} scale={0.9} />
 

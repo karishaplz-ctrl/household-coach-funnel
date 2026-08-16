@@ -1,14 +1,29 @@
 import { Note } from './Note';
 import { Plant } from './Plant';
+import { SkyBackdrop, GroundBand } from './Backdrop';
 
 export function PersonalizingIllustration() {
   return (
     <svg
       viewBox="0 0 260 200"
-      className="w-full max-w-[220px]"
+      className="w-full max-w-[240px]"
       aria-hidden="true"
     >
-      <rect x="0" y="0" width="260" height="200" rx="24" fill="#FBF5EC" />
+      <SkyBackdrop
+        id="pz-sky"
+        width={260}
+        height={200}
+        top="#FEFCFA"
+        bottom="#FBEEE7"
+      />
+
+      <GroundBand
+        width={260}
+        y={166}
+        height={34}
+        farColor="#F1E6D8"
+        nearColor="#E4D3BE"
+      />
 
       <ellipse cx="130" cy="176" rx="65" ry="7" fill="#2C2620" opacity="0.07" />
 

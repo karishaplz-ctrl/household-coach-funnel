@@ -10,16 +10,21 @@ export function HookStep() {
     <div className="flex flex-col items-center gap-6 py-6 text-center">
       <HookIllustration />
 
-      <h2 className="text-xl font-semibold text-ink-900">
-        Your Home Doesn&apos;t Need a Weekend. It Needs 15 Minutes.
-      </h2>
+      <div>
+        <h2 className="font-serif text-2xl font-bold text-ink-900">
+          Are You Ready to Fix It?
+        </h2>
+        <p className="mt-2 text-sm text-ink-500">
+          Your home doesn&apos;t need a weekend. It needs 15 minutes.
+        </p>
+      </div>
 
       <button
         type="button"
         onClick={goNext}
-        className="w-full rounded-lg bg-terracotta-500 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-terracotta-600"
+        className="w-full rounded-full bg-terracotta-500 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-terracotta-600"
       >
-        Let&apos;s find your plan
+        Yes, I&apos;m ready
       </button>
     </div>
   );

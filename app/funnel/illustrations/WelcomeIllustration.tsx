@@ -1,10 +1,11 @@
 import { Plant } from './Plant';
+import { SkyBackdrop, GroundBand } from './Backdrop';
 
 export function WelcomeIllustration() {
   return (
     <svg
       viewBox="0 0 260 190"
-      className="w-full max-w-[220px]"
+      className="w-full max-w-[240px]"
       aria-hidden="true"
     >
       <defs>
@@ -13,7 +14,21 @@ export function WelcomeIllustration() {
         </clipPath>
       </defs>
 
-      <rect x="0" y="0" width="260" height="190" rx="24" fill="#FBF5EC" />
+      <SkyBackdrop
+        id="wel-sky"
+        width={260}
+        height={190}
+        top="#FEFCFA"
+        bottom="#F1F4EC"
+      />
+
+      <GroundBand
+        width={260}
+        y={158}
+        height={32}
+        farColor="#DFE7D3"
+        nearColor="#F1E6D8"
+      />
 
       <ellipse cx="130" cy="168" rx="70" ry="7" fill="#2C2620" opacity="0.07" />
 

@@ -10,7 +10,7 @@ export function InterstitialStep() {
     <div className="flex flex-col items-center gap-5 py-6 text-center">
       <OverwhelmedIllustration />
 
-      <h2 className="text-lg font-semibold text-ink-900">
+      <h2 className="font-serif text-xl font-bold text-ink-900">
         You&apos;re not messy. You&apos;re overwhelmed.
       </h2>
       <p className="text-sm text-ink-500">
@@ -22,7 +22,7 @@ export function InterstitialStep() {
       <button
         type="button"
         onClick={goNext}
-        className="w-full rounded-lg bg-terracotta-500 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-terracotta-600"
+        className="w-full rounded-full bg-terracotta-500 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-terracotta-600"
       >
         Continue
       </button>

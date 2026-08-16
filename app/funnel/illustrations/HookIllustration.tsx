@@ -1,13 +1,28 @@
 import { Plant } from './Plant';
+import { SkyBackdrop, GroundBand } from './Backdrop';
 
 export function HookIllustration() {
   return (
     <svg
       viewBox="0 0 260 220"
-      className="w-full max-w-[220px]"
+      className="w-full max-w-[240px]"
       aria-hidden="true"
     >
-      <rect x="0" y="0" width="260" height="220" rx="24" fill="#FBF5EC" />
+      <SkyBackdrop
+        id="hook-sky"
+        width={260}
+        height={220}
+        top="#FEFCFA"
+        bottom="#FBEEE7"
+      />
+
+      <GroundBand
+        width={260}
+        y={182}
+        height={38}
+        farColor="#F1E6D8"
+        nearColor="#E4D3BE"
+      />
 
       <ellipse cx="130" cy="196" rx="60" ry="7" fill="#2C2620" opacity="0.08" />
 

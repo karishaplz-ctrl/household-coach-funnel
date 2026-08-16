@@ -1,7 +1,7 @@
 import { QUESTIONS } from '@/app/funnel/questions';
 
 interface SubmitRequestBody {
-  answers: Record<string, string>;
+  answers: Record<string, string | string[]>;
   email: string;
 }
 
@@ -15,20 +15,27 @@ function isValidBody(body: unknown): body is SubmitRequestBody {
   );
 }
 
+function formatAnswer(value: string | string[] | undefined): string {
+  if (Array.isArray(value)) {
+    return value.length > 0 ? value.join(', ') : '(no answer)';
+  }
+  return value?.trim() || '(no answer)';
+}
+
 function formatTelegramMessage(
-  answers: Record<string, string>,
+  answers: Record<string, string | string[]>,
   email: string,
 ): string {
   const questionLines = QUESTIONS.map((question) => {
-    const answer = answers[`q${question.id}`]?.trim() || '(no answer)';
+    const answer = formatAnswer(answers[`q${question.id}`]);
     return `${question.id}. ${question.text} — ${answer}`;
   });
 
   return [
     'New Nook quiz submission',
-    `Name — ${answers.name?.trim() || '(no answer)'}`,
-    `Gender — ${answers.gender?.trim() || '(no answer)'}`,
-    `Age — ${answers.age?.trim() || '(no answer)'}`,
+    `Name — ${formatAnswer(answers.name)}`,
+    `Gender — ${formatAnswer(answers.gender)}`,
+    `Age — ${formatAnswer(answers.age)}`,
     ...questionLines,
     `Email — ${email}`,
   ].join('\n');

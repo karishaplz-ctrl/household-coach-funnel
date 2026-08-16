@@ -43,7 +43,7 @@ export function EmailCaptureStep() {
 
   return (
     <div className="flex flex-col gap-5">
-      <h2 className="text-lg font-semibold text-ink-900">
+      <h2 className="font-serif text-lg font-bold text-ink-900">
         Where should we send your Nook Plan?
       </h2>
 
@@ -63,7 +63,7 @@ export function EmailCaptureStep() {
           type="button"
           onClick={goBack}
           disabled={isSubmitting}
-          className="flex-1 rounded-lg border border-cream-300 px-4 py-3 text-sm font-medium text-ink-700 transition-colors hover:bg-cream-50 disabled:opacity-60"
+          className="flex-1 rounded-full border border-cream-300 px-4 py-3 text-sm font-medium text-ink-700 transition-colors hover:bg-cream-50 disabled:opacity-60"
         >
           Back
         </button>
@@ -71,7 +71,7 @@ export function EmailCaptureStep() {
           type="button"
           onClick={handleSubmit}
           disabled={isSubmitting || !answers.email.trim()}
-          className="flex-1 rounded-lg bg-terracotta-500 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-terracotta-600 disabled:cursor-not-allowed disabled:opacity-60"
+          className="flex-1 rounded-full bg-terracotta-500 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-terracotta-600 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {isSubmitting ? 'Sending...' : 'Get My Plan'}
         </button>

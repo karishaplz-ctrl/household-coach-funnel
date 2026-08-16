@@ -7,15 +7,14 @@ import { WelcomeIllustration } from '../illustrations/WelcomeIllustration';
 export function PersonalInfoStep() {
   const { answers, setAnswer, goNext } = useFunnel();
 
-  const canContinue =
-    answers.name.trim().length > 0 && !!answers.gender && !!answers.age;
+  const canContinue = !!answers.gender && !!answers.age;
 
   return (
     <div className="flex flex-col gap-6">
       <WelcomeIllustration />
 
       <div>
-        <h2 className="text-lg font-semibold text-ink-900">
+        <h2 className="font-serif text-xl font-bold text-ink-900">
           Let&apos;s get to know you a bit before we dive in
         </h2>
         <p className="mt-1 text-sm text-ink-500">
@@ -25,7 +24,8 @@ export function PersonalInfoStep() {
 
       <div className="flex flex-col gap-2">
         <label className="text-sm font-medium text-ink-700">
-          What should we call you?
+          What should we call you?{' '}
+          <span className="font-normal text-ink-400">(optional)</span>
         </label>
         <input
           type="text"
@@ -90,7 +90,7 @@ export function PersonalInfoStep() {
         type="button"
         onClick={goNext}
         disabled={!canContinue}
-        className="rounded-lg bg-terracotta-500 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-terracotta-600 disabled:cursor-not-allowed disabled:opacity-60"
+        className="rounded-full bg-terracotta-500 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-terracotta-600 disabled:cursor-not-allowed disabled:opacity-60"
       >
         Continue
       </button>

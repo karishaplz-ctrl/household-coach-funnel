@@ -1,13 +1,28 @@
 import { Plant } from './Plant';
+import { SkyBackdrop, GroundBand } from './Backdrop';
 
 export function SuccessIllustration() {
   return (
     <svg
       viewBox="0 0 220 190"
-      className="w-full max-w-[190px]"
+      className="w-full max-w-[210px]"
       aria-hidden="true"
     >
-      <rect x="0" y="0" width="220" height="190" rx="24" fill="#FBF5EC" />
+      <SkyBackdrop
+        id="succ-sky"
+        width={220}
+        height={190}
+        top="#FEFCFA"
+        bottom="#F1F4EC"
+      />
+
+      <GroundBand
+        width={220}
+        y={158}
+        height={32}
+        farColor="#DFE7D3"
+        nearColor="#E4D3BE"
+      />
 
       <ellipse cx="110" cy="170" rx="60" ry="7" fill="#2C2620" opacity="0.08" />
 

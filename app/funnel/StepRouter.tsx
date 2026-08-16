@@ -4,6 +4,7 @@ import { useFunnel } from './FunnelContext';
 import { FunnelStep } from './FunnelStep';
 import { HookStep } from './steps/HookStep';
 import { PersonalInfoStep } from './steps/PersonalInfoStep';
+import { GreetingStep } from './steps/GreetingStep';
 import { QuestionStep } from './steps/QuestionStep';
 import { InterstitialStep } from './steps/InterstitialStep';
 import { PersonalizingStep } from './steps/PersonalizingStep';
@@ -16,6 +17,9 @@ function renderStep(currentStep: ReturnType<typeof useFunnel>['currentStep']) {
   }
   if (currentStep === 1) {
     return <PersonalInfoStep />;
+  }
+  if (currentStep === 'greeting') {
+    return <GreetingStep />;
   }
   if (typeof currentStep === 'number' && currentStep <= 9) {
     return <QuestionStep questionNumber={currentStep} />;

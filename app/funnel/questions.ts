@@ -2,6 +2,7 @@ export interface FunnelQuestion {
   id: number;
   text: string;
   options: string[];
+  multiSelect?: boolean;
 }
 
 export const GENDER_OPTIONS = [
@@ -29,12 +30,20 @@ export const QUESTIONS: FunnelQuestion[] = [
   {
     id: 3,
     text: 'Who else lives in this chaos with you?',
-    options: ['Just me', 'Partner or roommate', 'Kids', 'A full house'],
+    options: [
+      'Just me',
+      'Partner or roommate',
+      'Kids',
+      'A full house',
+      'Pets',
+    ],
+    multiSelect: true,
   },
   {
     id: 4,
     text: 'Which areas stress you out most?',
-    options: ['Kitchen', 'Bedroom', 'Living room', 'The whole house'],
+    options: ['Kitchen', 'Bedroom', 'Living room', 'The whole place'],
+    multiSelect: true,
   },
   {
     id: 5,

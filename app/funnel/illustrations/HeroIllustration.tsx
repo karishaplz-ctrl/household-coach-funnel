@@ -1,10 +1,11 @@
 import { Plant } from './Plant';
+import { SkyBackdrop, GroundBand } from './Backdrop';
 
 export function HeroIllustration() {
   return (
     <svg
       viewBox="0 0 340 260"
-      className="w-full max-w-[360px]"
+      className="w-full max-w-[420px]"
       aria-hidden="true"
     >
       <defs>
@@ -19,7 +20,13 @@ export function HeroIllustration() {
         </clipPath>
       </defs>
 
-      <rect x="0" y="0" width="340" height="260" rx="24" fill="#FBF5EC" />
+      <SkyBackdrop
+        id="hero-sky"
+        width={340}
+        height={260}
+        top="#FEFCFA"
+        bottom="#FBEEE7"
+      />
 
       {/* soft light beam */}
       <path d="M180,0 L340,0 L340,140 L120,260 L60,260 Z" fill="#FBEEE7" opacity="0.55" />
@@ -34,8 +41,14 @@ export function HeroIllustration() {
         strokeLinecap="round"
       />
 
-      {/* rug */}
-      <ellipse cx="170" cy="232" rx="140" ry="16" fill="#F1E6D8" />
+      {/* floor band */}
+      <GroundBand
+        width={340}
+        y={218}
+        height={42}
+        farColor="#F1E6D8"
+        nearColor="#E4D3BE"
+      />
 
       {/* ground shadow */}
       <ellipse cx="100" cy="222" rx="80" ry="8" fill="#2C2620" opacity="0.07" />

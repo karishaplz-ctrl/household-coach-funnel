@@ -7,8 +7,8 @@ export interface FunnelAnswers {
   gender: string;
   age: string;
   q2: string;
-  q3: string;
-  q4: string;
+  q3: string[];
+  q4: string[];
   q5: string;
   q6: string;
   q7: string;
@@ -18,10 +18,12 @@ export interface FunnelAnswers {
 }
 
 export type AnswerKey = keyof FunnelAnswers;
+export type MultiAnswerKey = 'q3' | 'q4';
 
 export type FunnelStepId =
   | 'hook'
   | 1
+  | 'greeting'
   | 2
   | 3
   | 4
@@ -42,8 +44,8 @@ const initialAnswers: FunnelAnswers = {
   gender: '',
   age: '',
   q2: '',
-  q3: '',
-  q4: '',
+  q3: [],
+  q4: [],
   q5: '',
   q6: '',
   q7: '',
@@ -57,7 +59,8 @@ interface FunnelContextValue {
   answers: FunnelAnswers;
   totalSteps: number;
   progressStep: number;
-  setAnswer: (key: AnswerKey, value: string) => void;
+  setAnswer: (key: Exclude<AnswerKey, MultiAnswerKey>, value: string) => void;
+  toggleArrayAnswer: (key: MultiAnswerKey, value: string) => void;
   goNext: () => void;
   goBack: () => void;
   canGoBack: boolean;
@@ -67,6 +70,8 @@ const FunnelContext = createContext<FunnelContextValue | null>(null);
 
 function getNextStep(step: FunnelStepId): FunnelStepId {
   if (step === 'hook') return 1;
+  if (step === 1) return 'greeting';
+  if (step === 'greeting') return 2;
   if (typeof step === 'number') {
     if (step === 6) return 'interstitial';
     if (step < 9) return (step + 1) as FunnelStepId;
@@ -79,8 +84,10 @@ function getNextStep(step: FunnelStepId): FunnelStepId {
 
 function getPreviousStep(step: FunnelStepId): FunnelStepId {
   if (step === 'hook') return 'hook';
+  if (step === 1) return 'hook';
+  if (step === 'greeting') return 1;
+  if (step === 2) return 'greeting';
   if (typeof step === 'number') {
-    if (step === 1) return 'hook';
     if (step === 7) return 'interstitial';
     return (step - 1) as FunnelStepId;
   }
@@ -91,6 +98,7 @@ function getPreviousStep(step: FunnelStepId): FunnelStepId {
 
 function getProgressStep(step: FunnelStepId): number {
   if (step === 'hook') return 0;
+  if (step === 'greeting') return 1;
   if (typeof step === 'number') return step;
   if (step === 'interstitial') return 6;
   if (step === 'personalizing') return 9;
@@ -101,8 +109,21 @@ export function FunnelProvider({ children }: { children: ReactNode }) {
   const [currentStep, setCurrentStep] = useState<FunnelStepId>('hook');
   const [answers, setAnswers] = useState<FunnelAnswers>(initialAnswers);
 
-  const setAnswer = (key: AnswerKey, value: string) => {
+  const setAnswer = (
+    key: Exclude<AnswerKey, MultiAnswerKey>,
+    value: string,
+  ) => {
     setAnswers((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const toggleArrayAnswer = (key: MultiAnswerKey, value: string) => {
+    setAnswers((prev) => {
+      const current = prev[key];
+      const next = current.includes(value)
+        ? current.filter((item) => item !== value)
+        : [...current, value];
+      return { ...prev, [key]: next };
+    });
   };
 
   const goNext = () => setCurrentStep((step) => getNextStep(step));
@@ -114,9 +135,14 @@ export function FunnelProvider({ children }: { children: ReactNode }) {
     totalSteps: TOTAL_STEPS,
     progressStep: getProgressStep(currentStep),
     setAnswer,
+    toggleArrayAnswer,
     goNext,
     goBack,
-    canGoBack: currentStep !== 'hook' && currentStep !== 1 && currentStep !== 'success',
+    canGoBack:
+      currentStep !== 'hook' &&
+      currentStep !== 1 &&
+      currentStep !== 'greeting' &&
+      currentStep !== 'success',
   };
 
   return (
