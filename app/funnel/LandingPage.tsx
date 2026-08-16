@@ -54,11 +54,6 @@ export function LandingPage({ onStart }: LandingPageProps) {
             at a time.
           </p>
         </div>
-        <div className="mx-auto mt-8 w-[clamp(280px,52vw,780px)] lg:mt-4">
-          <div className="aspect-[640/420] w-full">
-            <HeroIllustration />
-          </div>
-        </div>
         <div className="mx-auto w-full max-w-2xl px-4 py-6 text-center sm:py-8 lg:py-3">
           <button
             type="button"
@@ -67,6 +62,11 @@ export function LandingPage({ onStart }: LandingPageProps) {
           >
             Find my plan
           </button>
+        </div>
+        <div className="mx-auto w-[clamp(300px,72vw,1100px)]">
+          <div className="aspect-[900/500] w-full">
+            <HeroIllustration />
+          </div>
         </div>
       </section>
 

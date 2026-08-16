@@ -1,186 +1,166 @@
 import { Plant } from './Plant';
-import { GroundBand } from './Backdrop';
 
 export function HeroIllustration() {
   return (
     <svg
-      viewBox="0 0 640 420"
+      viewBox="0 0 900 500"
       className="block h-full w-full"
       preserveAspectRatio="xMidYMid meet"
       aria-hidden="true"
     >
       <defs>
-        <clipPath id="hero-back">
-          <rect x="110" y="110" width="80" height="150" rx="28" />
-        </clipPath>
-        <clipPath id="hero-seat">
-          <rect x="100" y="200" width="150" height="70" rx="26" />
-        </clipPath>
-        <clipPath id="hero-arm">
-          <rect x="230" y="168" width="34" height="100" rx="16" />
-        </clipPath>
-
-        <radialGradient id="hero-warmth" cx="50%" cy="48%" r="62%">
-          <stop offset="0%" stopColor="#FBEEE7" stopOpacity="0.4" />
-          <stop offset="55%" stopColor="#FBEEE7" stopOpacity="0.15" />
-          <stop offset="100%" stopColor="#FBEEE7" stopOpacity="0" />
-        </radialGradient>
+        <linearGradient id="chair-grad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#D98A5E" />
+          <stop offset="100%" stopColor="#A8532C" />
+        </linearGradient>
       </defs>
 
-      {/* whisper of warmth, fading fully to transparent — no boxed edge */}
-      <ellipse cx="320" cy="210" rx="320" ry="210" fill="url(#hero-warmth)" />
+      {/* organic backdrop shape, no rectangular edges */}
+      <path
+        d="M0,260 C80,200 160,232 240,206 C340,176 420,222 520,196 C620,170 700,214 800,190 C860,176 900,196 900,196 L900,500 L0,500 Z"
+        fill="#F6E1D3"
+      />
 
-      <g transform="translate(-32,85) scale(0.66)">
-        {/* sparkles */}
-        <path
-          d="M920,74 L923,81 L930,84 L923,87 L920,94 L917,87 L910,84 L917,81 Z"
-          fill="#D98A5E"
-          opacity="0.7"
-        />
-        <path
-          d="M960,120 L962,124 L966,126 L962,128 L960,132 L958,128 L954,126 L958,124 Z"
-          fill="#7C8F63"
-          opacity="0.7"
-        />
+      {/* ground shadows */}
+      <ellipse cx="175" cy="388" rx="115" ry="12" fill="#2C2620" opacity="0.06" />
+      <ellipse cx="715" cy="470" rx="100" ry="10" fill="#2C2620" opacity="0.05" />
 
-        {/* framed leaf picture */}
+      {/* armchair */}
+      <g transform="translate(100,210)">
+        <rect x="10" y="0" width="80" height="150" rx="28" fill="url(#chair-grad)" />
+        <rect x="120" y="58" width="34" height="100" rx="16" fill="url(#chair-grad)" />
+        <rect x="0" y="90" width="150" height="70" rx="26" fill="url(#chair-grad)" />
+        <rect x="20" y="104" width="95" height="46" rx="18" fill="#FEFCFA" />
+        <rect x="25" y="154" width="7" height="16" rx="2" fill="#5B5148" />
+        <rect x="130" y="154" width="7" height="16" rx="2" fill="#5B5148" />
+      </g>
+
+      {/* framed leaf picture */}
+      <rect
+        x="340"
+        y="200"
+        width="90"
+        height="100"
+        rx="16"
+        fill="#FEFCFA"
+        stroke="#E4D3BE"
+        strokeWidth="4"
+      />
+      <path
+        d="M385,275 C385,255 370,245 360,238 M385,275 C385,255 400,245 410,238 M385,275 L385,245"
+        fill="none"
+        stroke="#7C8F63"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+
+      {/* side table with books and plant */}
+      <rect x="320" y="380" width="110" height="14" rx="7" fill="#E4D3BE" />
+      <rect x="335" y="394" width="6" height="55" fill="#5B5148" />
+      <rect x="415" y="394" width="6" height="55" fill="#5B5148" />
+      <rect
+        x="338"
+        y="350"
+        width="38"
+        height="11"
+        rx="3"
+        fill="#F3D6C4"
+        transform="rotate(2 357 355)"
+      />
+      <rect
+        x="340"
+        y="362"
+        width="42"
+        height="13"
+        rx="3"
+        fill="#DFE7D3"
+        transform="rotate(-2 361 368)"
+      />
+      <Plant x={400} y={380} scale={1.3} full />
+
+      {/* cabinet */}
+      <g>
         <rect
-          x="422"
-          y="84"
-          width="52"
-          height="62"
-          rx="6"
+          x="630"
+          y="240"
+          width="180"
+          height="210"
+          rx="18"
           fill="#FEFCFA"
           stroke="#E4D3BE"
-          strokeWidth="3"
+          strokeWidth="4"
         />
+        <line
+          x1="720"
+          y1="240"
+          x2="720"
+          y2="450"
+          stroke="#E4D3BE"
+          strokeWidth="4"
+        />
+        <line
+          x1="630"
+          y1="345"
+          x2="810"
+          y2="345"
+          stroke="#E4D3BE"
+          strokeWidth="4"
+        />
+        <rect
+          x="650"
+          y="448"
+          width="10"
+          height="30"
+          rx="3"
+          fill="#5B5148"
+          transform="rotate(6 655 448)"
+        />
+        <rect
+          x="790"
+          y="448"
+          width="10"
+          height="30"
+          rx="3"
+          fill="#5B5148"
+          transform="rotate(-6 795 448)"
+        />
+
+        {/* vase with trailing vine */}
+        <rect x="758" y="210" width="24" height="26" rx="10" fill="#C1663B" />
         <path
-          d="M448,130 C448,110 438,102 432,98 M448,130 C448,110 458,102 464,98 M448,130 L448,105"
+          d="M770,212 C792,202 812,218 816,242 C819,262 806,276 796,271"
           fill="none"
           stroke="#7C8F63"
-          strokeWidth="3"
+          strokeWidth="3.5"
           strokeLinecap="round"
         />
-
-        {/* floor band */}
-        <GroundBand
-          width={1000}
-          y={268}
-          height={52}
-          farColor="#F1E6D8"
-          nearColor="#E4D3BE"
-        />
-
-        {/* ground shadow */}
         <ellipse
-          cx="180"
-          cy="272"
-          rx="80"
-          ry="8"
-          fill="#2C2620"
-          opacity="0.07"
+          cx="800"
+          cy="224"
+          rx="8"
+          ry="5"
+          fill="#7C8F63"
+          transform="rotate(30 800 224)"
         />
         <ellipse
-          cx="820"
-          cy="278"
-          rx="70"
-          ry="7"
-          fill="#2C2620"
-          opacity="0.06"
+          cx="811"
+          cy="245"
+          rx="7.5"
+          ry="4.5"
+          fill="#64744E"
+          transform="rotate(55 811 245)"
         />
-
-        {/* armchair legs */}
-        <rect x="125" y="264" width="7" height="16" rx="2" fill="#5B5148" />
-        <rect x="230" y="264" width="7" height="16" rx="2" fill="#5B5148" />
-
-        {/* backrest */}
-        <rect x="110" y="110" width="80" height="150" rx="28" fill="#D98A5E" />
-        <g clipPath="url(#hero-back)">
-          <rect x="160" y="105" width="40" height="160" fill="#A8532C" />
-        </g>
-
-        {/* armrest */}
-        <rect x="230" y="168" width="34" height="100" rx="16" fill="#D98A5E" />
-        <g clipPath="url(#hero-arm)">
-          <rect x="247" y="162" width="28" height="112" fill="#A8532C" />
-        </g>
-
-        {/* seat base */}
-        <rect x="100" y="200" width="150" height="70" rx="26" fill="#C1663B" />
-        <g clipPath="url(#hero-seat)">
-          <rect x="190" y="194" width="70" height="82" fill="#8A4322" />
-        </g>
-
-        {/* cushion */}
-        <rect x="120" y="214" width="95" height="46" rx="18" fill="#FEFCFA" />
-
-        {/* side table */}
-        <rect x="370" y="218" width="80" height="10" rx="5" fill="#E4D3BE" />
-        <rect x="382" y="228" width="4" height="42" fill="#5B5148" />
-        <rect x="434" y="228" width="4" height="42" fill="#5B5148" />
-
-        {/* books on table */}
-        <rect
-          x="388"
-          y="200"
-          width="36"
-          height="10"
-          rx="2"
-          fill="#DFE7D3"
-          transform="rotate(-2 406 205)"
+        <ellipse
+          cx="801"
+          cy="263"
+          rx="6.5"
+          ry="4"
+          fill="#7C8F63"
+          transform="rotate(70 801 263)"
         />
-        <rect
-          x="386"
-          y="190"
-          width="32"
-          height="9"
-          rx="2"
-          fill="#F3D6C4"
-          transform="rotate(2 402 194)"
-        />
-        <line
-          x1="390"
-          y1="194"
-          x2="414"
-          y2="194"
-          stroke="#8A4322"
-          strokeWidth="1"
-          opacity="0.5"
-        />
-
-        <Plant x={430} y={200} scale={1.05} full />
-
-        {/* window on the right */}
-        <rect
-          x="800"
-          y="90"
-          width="160"
-          height="180"
-          rx="12"
-          fill="#FEFCFA"
-          stroke="#E4D3BE"
-          strokeWidth="3"
-        />
-        <line
-          x1="880"
-          y1="90"
-          x2="880"
-          y2="270"
-          stroke="#E4D3BE"
-          strokeWidth="3"
-        />
-        <line
-          x1="800"
-          y1="180"
-          x2="960"
-          y2="180"
-          stroke="#E4D3BE"
-          strokeWidth="3"
-        />
-
-        <Plant x={840} y={272} scale={0.75} />
-        <Plant x={930} y={272} scale={0.6} full />
       </g>
+
+      <Plant x={595} y={460} scale={1} full />
     </svg>
   );
 }
